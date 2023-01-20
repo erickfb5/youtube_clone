@@ -3,6 +3,7 @@ import { Stack } from "@mui/material";
 import { categories } from "../utils/constants";
 
 const selectedCategory = "New";
+const categoryMatch = (category) => category.name === selectedCategory
 const SideBar = () => {
   return (
     <Stack
@@ -20,13 +21,13 @@ const SideBar = () => {
           className="category-btn"
           key={category.name}
           style={{
-            background: category.name === selectedCategory && "#fc1503",
+            background: categoryMatch(category) && "#fc1503",
             color: "white",
           }}
         >
           <span
             style={{
-              color: category.name === selectedCategory ? "white" : "red",
+              color: categoryMatch(category) ? "white" : "red",
               marginRight: '15px'
             }}
           >
@@ -34,7 +35,7 @@ const SideBar = () => {
           </span>
           <span
            style={{
-            opacity: category.name === selectedCategory ? "1" : "0.8",
+            opacity: categoryMatch(category) ? "1" : "0.8",
             marginRight: '15px'
           }}>{category.name}</span>
         </button>
